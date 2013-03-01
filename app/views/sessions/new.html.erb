@@ -1,0 +1,27 @@
+<% if flash[:alert] %>
+  <p id="notice" class="text-alert"><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_tag('/login', {class: 'form-horizontal'}) do%>
+<fieldset>
+<legend>Login</legend>
+
+  <div class="control-group">
+    <%= label_tag :name, 'Name', class: 'control-label' %>
+    <div class="controls">
+      <%= text_field_tag :name, params[:name] %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= label_tag :password, 'Password', class: 'control-label' %>
+    <div class="controls">
+      <%= password_field_tag :password, params[:password] %>
+    </div>
+  </div>
+
+  <div class="controls">
+    <%= submit_tag 'Login', class: 'btn' %>
+  </div>
+</fieldset>
+<% end %>

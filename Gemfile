@@ -29,6 +29,10 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.0'
 end
 
+gem 'therubyracer'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
