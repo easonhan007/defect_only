@@ -1,4 +1,10 @@
 DefectOnly::Application.routes.draw do
+  resources :defects
+
+
+  resources :projects
+
+
   get "sessions/new"
 
   get "sessions/create"
