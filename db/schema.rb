@@ -11,13 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303031224) do
+ActiveRecord::Schema.define(:version => 20130311141436) do
 
   create_table "defects", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "field1"
+    t.string   "field2"
+    t.string   "field3"
+    t.string   "field4"
+    t.string   "field5"
+  end
+
+  create_table "field_configs", :force => true do |t|
+    t.string   "field"
+    t.string   "html_type"
+    t.text     "values"
+    t.string   "default"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   create_table "project_members", :force => true do |t|
@@ -39,6 +55,13 @@ ActiveRecord::Schema.define(:version => 20130303031224) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "usersdefects", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "defect_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

@@ -1,0 +1,7 @@
+one:
+  name: 'defect_only'
+  description: 'defect only project'
+
+two:
+  name: 'selenium_webdriver'
+  description: 'Selenium WebDriver Project'

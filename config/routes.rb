@@ -1,16 +1,10 @@
 DefectOnly::Application.routes.draw do
+  resources :field_configs
+
+
+  root to: 'users#index'
   resources :defects
-
-
   resources :projects
-
-
-  get "sessions/new"
-
-  get "sessions/create"
-
-  get "sessions/destroy"
-
   resources :users
 
   controller :sessions do

@@ -1,0 +1,11 @@
+one:
+  field: 'field1'
+  name: 'platform'
+  html_type: 'text'
+  default: 'PC'
+two:
+  field: 'field2'
+  name: 'report period'
+  html_type: 'select'
+  values: <%= %w[production development] %>
+  default: 'development'

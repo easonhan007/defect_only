@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Field:</b>
+  <%= @field_config.field %>
+</p>
+
+<p>
+  <b>Html type:</b>
+  <%= @field_config.html_type %>
+</p>
+
+<p>
+  <b>Values:</b>
+  <%= @field_config.values %>
+</p>
+
+<p>
+  <b>Default:</b>
+  <%= @field_config.default %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @field_config.project_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_field_config_path(@field_config) %> |
+<%= link_to 'Back', field_configs_path %>

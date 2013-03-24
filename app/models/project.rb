@@ -2,5 +2,30 @@ class Project < ActiveRecord::Base
   attr_accessible :description, :name
 
   has_many :project_members
-  has_many :members, through: :project_members
+  has_many :members, through: :project_members, source: :user
+  has_many :defects, through: :members
+  has_many :field_configs
+
+  class << self
+    def predefined_fields
+      Defect.predefined_fields
+    end
+  end #self
+
+  def used_fields
+    fields = []
+    return fields if field_configs.blank?
+    
+    field_configs.each do |config|
+      fields << config.field
+    end #each
+
+    fields.sort do |x,y|
+      x.sub('field','').to_i <=> y.sub('field', '').to_i
+    end
+  end
+
+  def rest_fields
+    Project.predefined_fields - used_fields
+  end
 end
