@@ -9,3 +9,20 @@ two:
   html_type: 'select'
   values: <%= %w[production development] %>
   default: 'development'
+three:
+  field: 'field3'
+  name: 'f3'
+  html_type: 'select'
+  values: <%= %w[v1 v2] %>
+  default: 'v1'
+four:
+  field: 'field4'
+  name: 'reporter'
+  html_type: 'text_area'
+  default: 'me'
+five:
+  field: 'field5'
+  name: 'f5'
+  html_type: 'radio'
+  values: <%= %w[p1 p2 p3] %>
+  default: 'p1'

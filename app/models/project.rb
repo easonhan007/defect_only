@@ -20,12 +20,20 @@ class Project < ActiveRecord::Base
       fields << config.field
     end #each
 
-    fields.sort do |x,y|
-      x.sub('field','').to_i <=> y.sub('field', '').to_i
-    end
+    sort fields
   end
 
   def rest_fields
-    Project.predefined_fields - used_fields
+    fields = Project.predefined_fields - used_fields
+    sort fields
   end
+
+  private
+    def sort fields
+      fields.sort do |x,y|
+        x.sub('field','').to_i <=> y.sub('field', '').to_i
+      end #sort
+    end
+
 end
+

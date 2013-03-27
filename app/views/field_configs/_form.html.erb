@@ -1,4 +1,4 @@
-<%= form_for(@field_config) do |f| %>
+<%= form_for(@field_config, {html:{class:'form-horizontal'}}) do |f| %>
   <% if @field_config.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@field_config.errors.count, "error") %> prohibited this field_config from being saved:</h2>
@@ -11,27 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :field %><br />
-    <%= f.text_field :field %>
+  <div class="control-group">
+    <%= f.label :field, 'Field name', class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :field %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :html_type %><br />
-    <%= f.text_field :html_type %>
+
+  <div class="control-group">
+    <%= f.label :html_type, class: 'control-label' %>
+    <div class="controls">
+      <%= f.select :html_type, options_for_select(@html_options)%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :values %><br />
-    <%= f.text_area :values %>
+
+  <div class="control-group">
+    <%= f.label :description, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, rows: 5 %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :default %><br />
-    <%= f.text_field :default %>
+
+  <div class="control-group">
+    <%= f.label :default, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :default %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
+
+  <div class="control-group">
+    <%= f.label :project_id, class: 'control-label' %>
+    <div class="controls">
+      <% projects = current_user.projects %>
+      <%= f.collection_select(:project_id, projects, :id, :name) %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="controls">
+    <%= f.submit('Create', class: 'btn') %>
   </div>
 <% end %>

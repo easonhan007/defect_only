@@ -25,6 +25,7 @@ class FieldConfigsController < ApplicationController
   # GET /field_configs/new.json
   def new
     @field_config = FieldConfig.new
+    @html_options = FieldConfig.html_options
 
     respond_to do |format|
       format.html # new.html.erb

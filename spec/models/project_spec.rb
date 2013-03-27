@@ -22,6 +22,13 @@ describe Project do
     it 'rest fields should be correct' do
       projects(:one).rest_fields.should eql %w[field3 field4 field5]
     end
+
+    it 'rest fields should be empty' do
+      projects(:one).field_configs << field_configs(:three)
+      projects(:one).field_configs << field_configs(:four)
+      projects(:one).field_configs << field_configs(:five)
+      projects(:one).rest_fields.should eql []
+    end
   end #context
 
   context 'field configs empty' do

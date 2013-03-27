@@ -4,5 +4,15 @@ class FieldConfig < ActiveRecord::Base
 
   serialize :values, Array
 
+  class << self
+    def html_types
+      %w[text_field text_area check_box radio_button select]
+    end
+
+    def html_options
+      html_types.map {|type| [type.camelize, type]}
+    end
+  end
+
 end
 
