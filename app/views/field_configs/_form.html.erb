@@ -22,18 +22,23 @@
     <%= f.label :html_type, class: 'control-label' %>
     <div class="controls">
       <%= f.select :html_type, options_for_select(@html_options)%>
+      <a class="btn-mini btn" id="more_opts"><%= t(".more options") %></a>
     </div>
   </div>
 
+  <div id="vs-wrapper">
   <% @values_qt.times do |i| %>
-    <div class="control-group" id = "values#{i+1}">
+    <div class="control-group" id = <%= "values#{i+1}" %>>
       <%= f.label "values#{i+1}", class: 'control-label' %>
       <div class="controls">
         <%= text_field_tag "config_field_values#{i+1}", '', name: 'config_field[values][]' %>
+        <% if i > 0 %>
+          <a href="#" class="icon-remove"></a>
+        <% end %>
+      </div>
     </div>
-  </div>
-    
   <% end %>
+  </div>
 
 
   <div class="control-group">
