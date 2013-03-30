@@ -12,6 +12,10 @@ class FieldConfig < ActiveRecord::Base
     def html_options
       html_types.map {|type| [type.camelize, type]}
     end
+
+    def has_value_fields
+      %w[check_box radio_button select]
+    end
   end
 
 end

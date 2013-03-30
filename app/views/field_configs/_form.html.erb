@@ -25,6 +25,17 @@
     </div>
   </div>
 
+  <% @values_qt.times do |i| %>
+    <div class="control-group" id = "values#{i+1}">
+      <%= f.label "values#{i+1}", class: 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag "config_field_values#{i+1}", '', name: 'config_field[values][]' %>
+    </div>
+  </div>
+    
+  <% end %>
+
+
   <div class="control-group">
     <%= f.label :description, class: 'control-label' %>
     <div class="controls">
@@ -46,6 +57,8 @@
       <%= f.collection_select(:project_id, projects, :id, :name) %>
     </div>
   </div>
+
+  <%= hidden_field_tag 'has_value', @has_value_fields.join(',') %>
 
   <div class="controls">
     <%= f.submit('Create', class: 'btn') %>

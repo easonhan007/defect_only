@@ -26,6 +26,8 @@ class FieldConfigsController < ApplicationController
   def new
     @field_config = FieldConfig.new
     @html_options = FieldConfig.html_options
+    @has_value_fields = FieldConfig.has_value_fields
+    @values_qt = 3
 
     respond_to do |format|
       format.html # new.html.erb
