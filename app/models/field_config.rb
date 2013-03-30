@@ -1,5 +1,5 @@
 class FieldConfig < ActiveRecord::Base
-  attr_accessible :default, :field, :html_type, :project_id, :values
+  attr_protected nil
   belongs_to :project
 
   serialize :values, Array
