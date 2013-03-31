@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
     return fields if field_configs.blank?
     
     field_configs.each do |config|
-      fields << config.field
+      fields << config.field unless config.field.blank?
     end #each
 
     sort fields
@@ -26,6 +26,10 @@ class Project < ActiveRecord::Base
   def rest_fields
     fields = Project.predefined_fields - used_fields
     sort fields
+  end
+
+  def has_rest_fields?
+    !rest_fields.blank?
   end
 
   private
