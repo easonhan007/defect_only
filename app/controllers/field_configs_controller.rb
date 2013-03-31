@@ -25,10 +25,7 @@ class FieldConfigsController < ApplicationController
   # GET /field_configs/new.json
   def new
     @field_config = FieldConfig.new
-    @html_options = FieldConfig.html_options
-    @has_value_fields = FieldConfig.has_value_fields
-    @values_qt = 3
-
+    init_vars_for_new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @field_config }
@@ -50,6 +47,7 @@ class FieldConfigsController < ApplicationController
         format.html { redirect_to @field_config, notice: 'Field config was successfully created.' }
         format.json { render json: @field_config, status: :created, location: @field_config }
       else
+        init_vars_for_new
         format.html { render action: "new" }
         format.json { render json: @field_config.errors, status: :unprocessable_entity }
       end
@@ -82,5 +80,11 @@ class FieldConfigsController < ApplicationController
       format.html { redirect_to field_configs_url }
       format.json { head :no_content }
     end
+  end
+
+  def init_vars_for_new
+    @html_options = FieldConfig.html_options
+    @has_value_fields = FieldConfig.has_value_fields
+    @values_qt = 3
   end
 end

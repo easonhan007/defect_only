@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Name</th>
     <th>Field</th>
     <th>Html type</th>
     <th>Values</th>
@@ -14,6 +15,7 @@
 
 <% @field_configs.each do |field_config| %>
   <tr>
+    <td><%= field_config.name %></td>
     <td><%= field_config.field %></td>
     <td><%= field_config.html_type %></td>
     <td><%= field_config.values %></td>

@@ -32,6 +32,7 @@ end
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
+gem 'simple_form'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

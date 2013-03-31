@@ -3,14 +3,21 @@
 
   $(function() {
     var has_value_fields, more_opts;
-    $('div[id^="value"]').hide();
+    has_value_fields = $('#has_value').val().split(',');
+
     more_opts = $('#more_opts');
-    more_opts.hide();
+
+    console.log($('#field_config_html_type').val());
+    if(has_value_fields.indexOf($('#field_config_html_type').val()) == -1){
+      more_opts.hide();
+      $('div[id^="value"]').hide();
+    }
+
     $('#vs-wrapper').delegate('.icon-remove', 'click', function(e) {
       $(e.target).parent().parent().remove();
       return false;
     });
-    has_value_fields = $('#has_value').val().split(',');
+
     more_opts.click(function() {
       var html, last, new_one, now, now_html, reg, value_divs;
       value_divs = $('div[id^="value"]');
